@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+📓 Notes App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small, password-locked personal diary built with React. Write free-form notes or checklists, review them in one place, and switch between light and dark mode — everything is saved in your browser, no account or backend needed.
 
-## Available Scripts
+Features
+Password lock — set a password on first visit; you'll need it to get back into your notes after logging out.
+Two kinds of notes
+Normal notes on a lined, notebook-style page that grows as you type.
+Todo lists with custom checkboxes; add or remove tasks as you go.
+Saved notes view — every note is timestamped. Mark a note as done (it turns green and gets struck through), edit it, delete it, or clear everything at once.
+Light / dark mode — your choice is remembered between visits.
+Works offline — notes live in your browser's localStorage, so nothing leaves your device.
+Tech stack
+React 19
+React Router 7 for page routing
+Create React App (react-scripts) for the build tooling
+Plain CSS for styling
+Getting started
 
-In the project directory, you can run:
+You'll need Node.js (v18 or newer) and npm.
 
-### `npm start`
+bash
+git clone https://github.com/abeeraalam1/notes-app.git
+cd notes-app
+npm install
+npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The app opens at http://localhost:3000.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Other scripts
+Command	What it does
+npm start	Runs the app in development mode with live reload
+npm run build	Builds an optimized production bundle into build/
+npm test	Runs the test suite in watch mode
+How to use it
+Set a password the first time you open the app.
+On ✍️ Write, choose Normal Note or Todo List, write it, and hit Save Note.
+Open 📓 View Notes to see everything you've saved. From there you can tick a note off, Edit it (it reopens in the editor), Delete it, or Clear All Notes.
+Use 🚪 Logout to lock the diary again.
+Project structure
+src/
+├── App.js             # Routes, dark-mode toggle, login state
+├── Navbar.js          # Top navigation and logout
+├── PasswordPage.js    # Set / enter password
+├── ProtectedRoute.js  # Redirects to login if not unlocked
+├── DiaryPage.js       # Note and todo-list editor
+├── ViewNotesPage.js   # List of saved notes with edit/delete/done
+└── App.css            # Styling, including notebook lines and dark mode
+Good to know
+Data is per-browser. Notes are stored in localStorage, so they won't sync between devices or browsers, and clearing your browser data will erase them.
+The password is a privacy lock, not encryption. It's stored as plain text in the same browser storage as your notes, so it keeps casual eyes out but isn't real security. Don't store anything truly sensitive.
+Ideas for future improvements
+Hash the password and encrypt notes before storing them
+Search, tags, or categories for notes
+Export / import notes as a file
+Sync across devices with a backend
