@@ -2,6 +2,8 @@
 
 A small, password-locked personal diary built with React. Write free-form notes or checklists, review them in one place, and switch between light and dark mode — everything is saved in your browser, no account or backend needed.
 
+Link: https://notes-app-seven-pied-91.vercel.app
+
 ## Features
 
 - **Password lock** — set a password on first visit; you'll need it to get back into your notes after logging out.
